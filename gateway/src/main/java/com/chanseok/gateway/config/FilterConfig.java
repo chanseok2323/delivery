@@ -15,6 +15,8 @@ public class FilterConfig {
                         .uri("lb://order-service"))
                 .route(r -> r.path("/users/**")
                         .uri("lb://user-service"))
+                .route(r -> r.path("/restaurant/**")
+                        .uri("lb://restaurant-service"))
                 .build();
     }
 }

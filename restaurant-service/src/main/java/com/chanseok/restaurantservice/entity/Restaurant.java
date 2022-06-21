@@ -1,8 +1,11 @@
 package com.chanseok.restaurantservice.entity;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
 public class Restaurant extends BaseEntity {
 
     @Column(name = "restaurant_no")
@@ -12,4 +15,12 @@ public class Restaurant extends BaseEntity {
     private String location;
     private String locationDetail;
 
+    private Restaurant() {
+    }
+
+    public Restaurant(String name, String location, String locationDetail) {
+        this.name = name;
+        this.location = location;
+        this.locationDetail = locationDetail;
+    }
 }
