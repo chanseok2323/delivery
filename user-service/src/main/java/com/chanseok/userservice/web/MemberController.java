@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class MemberController {
 
     private final MemberService memberService;
 
-    @GetMapping("/users")
+    @GetMapping
     public ResponseMember findUser() {
         return null;
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public ResponseEntity<Void> signUp(@Valid @RequestBody SignUpReq signUpReq) {
         memberService.signUp(signUpReq.ofMemberCreateReq());
         return ResponseEntity.ok().build();
