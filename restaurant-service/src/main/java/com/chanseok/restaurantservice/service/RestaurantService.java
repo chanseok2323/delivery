@@ -1,5 +1,7 @@
 package com.chanseok.restaurantservice.service;
 
+import com.chanseok.restaurantservice.dto.MenuDto;
+import com.chanseok.restaurantservice.dto.ResponseRestaurantDetailResponse;
 import com.chanseok.restaurantservice.dto.RestaurantDto;
 import com.chanseok.restaurantservice.entity.Restaurant;
 import com.chanseok.restaurantservice.repository.RestaurantRepository;
@@ -24,8 +26,10 @@ public class RestaurantService {
         restaurantRepository.save(new Restaurant(restaurantDto.getName(), restaurantDto.getLocation(), restaurantDto.getLocationDetail()));
     }
 
-    public RestaurantDto findByNo(Long no) {
-        Restaurant restaurant = restaurantRepository.findByNo(no).orElseThrow(() -> new IllegalArgumentException("에러 발생"));
-        return RestaurantDto.of(restaurant);
+    public ResponseRestaurantDetailResponse findByNo(Long no) {
+        Restaurant restaurant = restaurantRepository.findByNo(no)
+                .orElseThrow(() -> new IllegalArgumentException("에러 발생"));
+        List<MenuDto> menus = restaurantRepository.findByRestaurantNo(no);
+        return ResponseRestaurantDetailResponse.of(restaurant.getNo(), restaurant.getName(), menus);
     }
 }

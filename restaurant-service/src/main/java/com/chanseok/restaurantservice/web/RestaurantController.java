@@ -1,5 +1,6 @@
 package com.chanseok.restaurantservice.web;
 
+import com.chanseok.restaurantservice.dto.ResponseRestaurantDetailResponse;
 import com.chanseok.restaurantservice.dto.RestaurantDto;
 import com.chanseok.restaurantservice.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
@@ -29,7 +30,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/{no}")
-    public RestaurantDto findRestaurant(@PathVariable Long no) {
+    public ResponseRestaurantDetailResponse findRestaurant(@PathVariable Long no) {
         return restaurantService.findByNo(no);
     }
 }
