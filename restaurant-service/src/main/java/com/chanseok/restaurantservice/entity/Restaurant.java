@@ -15,7 +15,7 @@ public class Restaurant extends BaseEntity {
     private String location;
     private String locationDetail;
 
-    private Restaurant() {
+    protected Restaurant() {
     }
 
     public Restaurant(String name, String location, String locationDetail) {
@@ -23,4 +23,5 @@ public class Restaurant extends BaseEntity {
         this.location = location;
         this.locationDetail = locationDetail;
     }
+
 }
