@@ -1,7 +1,7 @@
 package com.chanseok.restaurantservice.web;
 
-import com.chanseok.restaurantservice.dto.ResponseRestaurantDetailResponse;
-import com.chanseok.restaurantservice.dto.RestaurantDto;
+import com.chanseok.restaurantservice.dto.RestaurantDetailResponse;
+import com.chanseok.restaurantservice.dto.CreateRestaurantRequest;
 import com.chanseok.restaurantservice.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,18 +19,18 @@ public class RestaurantController {
     private final RestaurantService restaurantService;
 
     @GetMapping
-    public List<RestaurantDto> findRestaurants() {
+    public List<CreateRestaurantRequest> findRestaurants() {
         return restaurantService.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Void> save(@RequestBody RestaurantDto restaurantDto) {
+    public ResponseEntity<Void> save(@RequestBody CreateRestaurantRequest restaurantDto) {
         restaurantService.save(restaurantDto);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{no}")
-    public ResponseRestaurantDetailResponse findRestaurant(@PathVariable Long no) {
+    public RestaurantDetailResponse findRestaurant(@PathVariable Long no) {
         return restaurantService.findByNo(no);
     }
 }

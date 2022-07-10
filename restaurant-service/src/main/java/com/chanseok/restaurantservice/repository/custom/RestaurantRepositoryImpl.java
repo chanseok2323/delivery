@@ -1,4 +1,4 @@
-package com.chanseok.restaurantservice.repository;
+package com.chanseok.restaurantservice.repository.custom;
 
 import com.chanseok.restaurantservice.dto.MenuDto;
 import com.querydsl.core.types.Projections;
@@ -13,7 +13,7 @@ import static com.chanseok.restaurantservice.entity.QRestaurant.*;
 
 @Repository
 @RequiredArgsConstructor
-public class CustomRestaurantRepositoryImpl implements CustomRestaurantRepository {
+public class RestaurantRepositoryImpl implements RestaurantRepositoryCustom {
 
     private final JPAQueryFactory jpaQueryFactory;
 
@@ -24,4 +24,5 @@ public class CustomRestaurantRepositoryImpl implements CustomRestaurantRepositor
                 .where(menu.restaurant.no.eq(no))
                 .fetch();
     }
+
 }
