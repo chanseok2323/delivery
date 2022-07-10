@@ -1,5 +1,6 @@
 package com.chanseok.restaurantservice.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -18,5 +19,12 @@ public class Review extends BaseEntity {
 
     private String comments;
     private Integer recommend;
+    private Long pntrNo;
+    private Integer taps;
 
+    public Review(Restaurant restaurant, String comments, Integer recommend) {
+        this.restaurant = restaurant;
+        this.comments = comments;
+        this.recommend = recommend;
+    }
 }
