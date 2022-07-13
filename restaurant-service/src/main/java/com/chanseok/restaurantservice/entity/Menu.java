@@ -3,6 +3,7 @@ package com.chanseok.restaurantservice.entity;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity
 @Setter
@@ -18,6 +19,6 @@ public class Menu extends BaseEntity {
 
     @Column(name = "menu_name")
     private String name;
-    private Integer price;
+    private BigDecimal price;
     private String comments;
 }

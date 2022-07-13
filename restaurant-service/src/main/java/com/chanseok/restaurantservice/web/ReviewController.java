@@ -26,6 +26,6 @@ public class ReviewController {
 
     @GetMapping({"/{no}"})
     public List<ReviewsResponse> findByNo(@PathVariable Long no) {
-        return reviewService.getReview(no);
+        return reviewService.findByNo(no);
     }
 }
