@@ -17,7 +17,7 @@ public class ReviewRepositoryImpl implements ReviewRepositoryCustom {
 
     private final JPAQueryFactory jpaQueryFactory;
 
-    public List<ReviewsResponse> getReview(Long restaurantNo) {
+    public List<ReviewsResponse> findByNo(Long restaurantNo) {
         return jpaQueryFactory.select(Projections.bean(
                     ReviewsResponse.class, review.no, restaurant.name, review.comments, review.recommend, review.taps, review.pntrNo.coalesce(Long.valueOf("0")).as("pntrNo"), review.createAt)
                 )

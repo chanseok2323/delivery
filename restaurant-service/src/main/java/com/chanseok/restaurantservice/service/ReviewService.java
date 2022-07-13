@@ -27,8 +27,8 @@ public class ReviewService {
         reviewRepository.save(new Review(orderRestaurant.getRestaurant(), createReviewRequest.getComments(), createReviewRequest.getRecommend()));
     }
 
-    public List<ReviewsResponse> getReview(Long restaurantNo) {
-        return reviewRepository.getReview(restaurantNo);
+    public List<ReviewsResponse> findByNo(Long restaurantNo) {
+        return reviewRepository.findByNo(restaurantNo);
     }
 
 }
