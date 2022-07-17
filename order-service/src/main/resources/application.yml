@@ -10,7 +10,18 @@ spring:
     password: 1234
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
+    properties:
+      show_sql: true
+      format_sql: true
+  kafka:
+    consumer:
+      group-id: kafka-consumer-group
+      bootstrap-servers: localhost:9092
+
+kafka:
+  order:
+    topics: ORDER-TOPIC
 
 logging:
   level:

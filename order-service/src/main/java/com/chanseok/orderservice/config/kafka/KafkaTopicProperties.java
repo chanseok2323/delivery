@@ -7,8 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Getter @Setter
-@ConfigurationProperties(prefix = "spring.kafka.consumer")
-public class KafkaProperties {
-    private String groupId;
-    private String bootstrapServers;
+@ConfigurationProperties(prefix = "kafka.order")
+public class KafkaTopicProperties {
+    private String topics;
 }
