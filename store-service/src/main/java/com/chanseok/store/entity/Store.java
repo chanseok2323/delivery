@@ -1,5 +1,6 @@
 package com.chanseok.store.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 
 import javax.persistence.*;
@@ -21,6 +22,7 @@ public class Store extends BaseEntity {
     protected Store() {
     }
 
+    @Builder
     public Store(String name, String location, String locationDetail, Time startBusinessTime, Time endBusinessTime) {
         this.name = name;
         this.location = location;
